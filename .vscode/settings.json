@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "*.tpl": "plaintext",
+    "*.html": "html",
+    "*.fdcomp": "javascript",
+    "*.wpy": "vue",
+    ".webpackrc": "json",
+    "*.js": "javascript",
+    "*.njs": "nunjucks",
+    "main.h": "c",
+    "task.h": "c",
+    "stdio.h": "c"
+  }
+}
