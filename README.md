@@ -2,5 +2,7 @@
 
 ## api
 
+详见：https://github.com/hardcore-rpi/evloop_os/blob/master/os/task.h
+
 - 启动任务 os_task_start()
 
