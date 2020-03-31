@@ -15,7 +15,7 @@ void task_hit(struct t_task_ctx * p_ctx) {
   hit_invoke_cnt++;
 
   if (hit_invoke_cnt == 2) {
-    p_ctx->self->os_status = OS_TASK_STATUS_RUN;
+    os_set_run(p_ctx);
   }
 }
 

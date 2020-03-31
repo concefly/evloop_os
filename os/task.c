@@ -17,6 +17,13 @@ void os_init_task(struct t_task *p_task) {
   p_task->state = 0;
 }
 
+void os_set_idle(struct t_task_ctx *p_ctx) {
+  p_ctx->self->os_status = OS_TASK_STATUS_IDLE;
+}
+
+void os_set_run(struct t_task_ctx *p_ctx) {
+  p_ctx->self->os_status = OS_TASK_STATUS_RUN;
+}
 
 t_err os_start_loop(struct t_task_ctx * p_ctx) {
   // 遍历 before_all
