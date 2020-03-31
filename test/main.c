@@ -25,8 +25,7 @@ void task_run(struct t_task_ctx * p_ctx) {
 
 void test_run_task(CuTest *tc) {
   struct t_task_ctx task_ctx;
-
-  os_task_init(&task_ctx);
+  os_ctx_init(&task_ctx);
 
   task_ctx.loop_limit = 2;
 
@@ -39,7 +38,7 @@ void test_run_task(CuTest *tc) {
   
   task_ctx.task_array[0] = &task1;
 
-  t_err errno = os_task_start(&task_ctx);
+  t_err errno = os_start_loop(&task_ctx);
 
   CuAssertIntEquals(tc, 0, errno);
   CuAssertIntEquals(tc, 1, before_all_invoke_cnt);

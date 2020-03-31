@@ -1,6 +1,6 @@
 #include "task.h"
 
-t_err os_task_init(struct t_task_ctx *p_ctx) {
+t_err os_ctx_init(struct t_task_ctx *p_ctx) {
   p_ctx->loop_limit = 0;
   p_ctx->self = NULL;
 
@@ -12,7 +12,7 @@ t_err os_task_init(struct t_task_ctx *p_ctx) {
 }
 
 
-t_err os_task_start(struct t_task_ctx * p_ctx) {
+t_err os_start_loop(struct t_task_ctx * p_ctx) {
   // 遍历 before_all
   for (t_size i = 0; i < OS_TASK_MAX_SIZE; i++) {
     struct t_task *p_task = (p_ctx->task_array)[i];

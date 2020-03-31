@@ -39,7 +39,7 @@ struct t_task {
   unsigned long state;
 };
 
-extern t_err os_task_init(struct t_task_ctx *p_task_ctx);
-extern t_err os_task_start(struct t_task_ctx *p_task_ctx);
+extern t_err os_ctx_init(struct t_task_ctx *p_task_ctx);
+extern t_err os_start_loop(struct t_task_ctx *p_task_ctx);
 
 #endif // __OS_TASK__
