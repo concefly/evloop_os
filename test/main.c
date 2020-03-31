@@ -25,16 +25,17 @@ void task_run(struct t_task_ctx * p_ctx) {
 
 void test_run_task(CuTest *tc) {
   struct t_task_ctx task_ctx;
-  os_ctx_init(&task_ctx);
+  os_init_ctx(&task_ctx);
 
   task_ctx.loop_limit = 2;
 
   struct t_task task1;
+  os_init_task(&task1);
+
   task1.id = 1;
   task1.p_before_all = &task_before_all;
   task1.p_hit = &task_hit;
   task1.p_run = &task_run;
-  task1.os_status = OS_TASK_STATUS_IDLE;
   
   task_ctx.task_array[0] = &task1;
 

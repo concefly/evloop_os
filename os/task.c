@@ -1,14 +1,20 @@
 #include "task.h"
 
-t_err os_ctx_init(struct t_task_ctx *p_ctx) {
+void os_init_ctx(struct t_task_ctx *p_ctx) {
   p_ctx->loop_limit = 0;
   p_ctx->self = NULL;
 
   for (t_size i = 0; i < OS_TASK_MAX_SIZE; i++) {
     p_ctx->task_array[i] = NULL;
   }
+}
 
-  return 0;
+void os_init_task(struct t_task *p_task) {
+  p_task->id = 0;
+  p_task->p_hit = NULL;
+  p_task->p_run = NULL;
+  p_task->os_status = OS_TASK_STATUS_IDLE;
+  p_task->state = 0;
 }
 
 
