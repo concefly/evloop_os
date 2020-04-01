@@ -33,6 +33,10 @@ struct t_task {
   void (*p_hit)(struct t_task_ctx *p_ctx);
   void (*p_run)(struct t_task_ctx *p_ctx);
 
+  // 资源占用位
+  unsigned long resource_occupy;
+  unsigned long resource_occupy_sub;
+
   unsigned char os_status;
 
   // 任务状态位

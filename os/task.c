@@ -15,6 +15,8 @@ void os_init_task(struct t_task *p_task) {
   p_task->p_run = NULL;
   p_task->os_status = OS_TASK_STATUS_IDLE;
   p_task->state = 0;
+  p_task->resource_occupy = 0;
+  p_task->resource_occupy_sub = 0;
 }
 
 void os_set_idle(struct t_task_ctx *p_ctx) {
