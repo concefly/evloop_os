@@ -13,6 +13,10 @@ typedef unsigned char t_size;
 typedef unsigned char t_err;
 typedef unsigned char t_task_id;
 
+// 错误号
+#define OS_TASK_ERR_UNIT_OCCUPY 1
+#define OS_TASK_ERR_PORT_OCCUPY 2
+
 // 任务状态
 #define OS_TASK_STATUS_IDLE 0
 #define OS_TASK_STATUS_RUN 1
@@ -33,9 +37,8 @@ struct t_task {
   void (*p_hit)(struct t_task_ctx *p_ctx);
   void (*p_run)(struct t_task_ctx *p_ctx);
 
-  // 资源占用位
-  unsigned long resource_occupy;
-  unsigned long resource_occupy_sub;
+  unsigned long unit_occupy;
+  unsigned long port_occupy;
 
   unsigned char os_status;
 

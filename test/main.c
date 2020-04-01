@@ -47,11 +47,38 @@ void test_run_task(CuTest *tc) {
   CuAssertIntEquals(tc, 1, run_invoke_cnt);
 }
 
+void test_check_occupy_flag(CuTest *tc) {
+  struct t_task_ctx task_ctx;
+  os_init_ctx(&task_ctx);
+
+  task_ctx.loop_limit = 2;
+
+  struct t_task task1;
+  struct t_task task2;
+
+  os_init_task(&task1);
+  os_init_task(&task2);
+
+  task1.id = 1;
+  task1.unit_occupy = 1 | (1 << 1);
+
+  task2.id = 2;
+  task2.unit_occupy = (1 << 1);
+
+  task_ctx.task_array[0] = &task1;
+  task_ctx.task_array[1] = &task2;
+
+  t_err errno = os_start_loop(&task_ctx);
+
+  CuAssertIntEquals(tc, OS_TASK_ERR_UNIT_OCCUPY, errno);
+}
+
 int main(void) {
   CuString *output = CuStringNew();
   CuSuite* suite = CuSuiteNew();
   
   SUITE_ADD_TEST(suite, test_run_task);
+  SUITE_ADD_TEST(suite, test_check_occupy_flag);
   
   CuSuiteRun(suite);
   CuSuiteSummary(suite, output);
