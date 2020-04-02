@@ -42,8 +42,8 @@ struct t_task {
 
   unsigned char os_status;
 
-  // 任务状态位
-  unsigned long state;
+  // 任务状态指针
+  void *p_state;
 };
 
 extern void os_init_ctx(struct t_task_ctx *p_ctx);
