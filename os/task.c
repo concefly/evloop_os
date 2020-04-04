@@ -33,7 +33,6 @@ void os_init_task(struct t_task *p_task) {
   p_task->p_hit = NULL;
   p_task->p_run = NULL;
   p_task->os_status = OS_TASK_STATUS_IDLE;
-  p_task->p_state = NULL;
   p_task->unit_occupy = 0;
   p_task->port_occupy = 0;
 }

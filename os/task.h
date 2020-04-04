@@ -21,6 +21,19 @@ typedef unsigned char t_task_id;
 #define OS_TASK_STATUS_IDLE 0
 #define OS_TASK_STATUS_RUN 1
 
+// unit
+#define OS_UNIT_TIMER 1
+
+// port
+#define OS_PORT_1 1
+#define OS_PORT_2 (1 << 1)
+#define OS_PORT_3 (1 << 2)
+#define OS_PORT_4 (1 << 3)
+#define OS_PORT_5 (1 << 4)
+#define OS_PORT_6 (1 << 5)
+#define OS_PORT_7 (1 << 6)
+#define OS_PORT_8 (1 << 7)
+
 // 任务上下文
 struct t_task_ctx {
   struct t_task *(task_array[OS_TASK_MAX_SIZE]);
@@ -41,9 +54,6 @@ struct t_task {
   unsigned long port_occupy;
 
   unsigned char os_status;
-
-  // 任务状态指针
-  void *p_state;
 };
 
 extern void os_init_ctx(struct t_task_ctx *p_ctx);
